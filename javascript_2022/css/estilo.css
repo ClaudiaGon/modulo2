@@ -21,13 +21,30 @@
 #painel {
     display: flex;
     justify-content: space-between;
-    height: 100px;
+    height: 120px;
     background-color: rgb(225, 255, 251);
     border: 2px solid rgba(0, 119, 255, 0.911);
 }
 
 #historico {
+    padding: 5px ;
     border: 2px solid rgba(0, 119, 255, 0.911);
+    font-size: 2em;
+    color: black;
+}
+#historico:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+#expressaoAovivo {
+    font-size: 5em; 
+}
+
+#expressaoDigitada {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.3em;
 }
 
 #expressoes {
@@ -53,5 +70,14 @@
     font-size: 2em;
     text-align: center;
     border-radius: 10px;
+    cursor: pointer; /* vira mãozinha*/
+}
+.botao:hover {
+    background-color: #f0f0f0;
+    box-shadow: 5px 5px 10px 4px rgba(0,0,0,0.36);
+}
+.botao:active {
+    background-color: #b6a7a7;
+    box-shadow: 5px 5px 10px 4px rgba(0,0,0,0.36);
 }
 /* FIM: botoes calculadora*/
