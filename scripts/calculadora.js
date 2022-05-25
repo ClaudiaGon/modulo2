@@ -1,14 +1,14 @@
 //teremos eventos na nossa calculadora//
 /**
- * objetivo será configurar os elementos da minha calcurladora
+ * objetivo será configurar todos os elementos da minha calcurladora
  */
-function configurar () {
-    console.log("configurar");
+function configurar() {
+console.log("configurar");
+configurarAbrirHistorico();
 }
 
-//#region Funcoes do painel
-function configurarAbrirHistorico() {
-    console.log("configurar");
+//#region
+function configurarAbrirHistorico(){
+    console.log("configurarAbrirHistorico");
 }
-
 //#endregion
