@@ -111,4 +111,12 @@
     background-color: #b6a7a7;
     box-shadow: 5px 5px 10px 4px rgba(0,0,0,0.36);
 }
+
+.operacao {
+    background-color: beige;
+}
+.calcular  {
+    background-color: aqua;
+    color: azure;
+}
 /* FIM: botoes calculadora*/
