@@ -47,12 +47,38 @@ function configurarClicksTeclas() {
 
             if(valorbotao == "AC") {
                 expressaoAovivo.innerText = "";
-            } else {
-                expressaoAovivo.innerText += event.target.getAttribute("data-value");
+            } 
+            else if (valorbotao == "=") {
+                calcular();
+            } else if (
+                 valorbotao == "+" || 
+                 valorbotao == "-" || 
+                 valorbotao == "/" || 
+                 valorbotao == "x"
+             ){
+            }else {
+                expressaoAovivo.innerText += valorbotao;
             }
         });
     }
 
     console.log("botões", botoes);
+}
+//#endregion
+
+//#region Operações da calculadora
+function calcular() {
+    console.log("Criar mecanismo que calculo");
+
+    let expressaoAovivo = document.getElementById("expressaoAovivo");
+    let expressaoDigitada = document.getElementById("expressaoDigitada");
+
+    // let expressao = expressaoAovivo.innerText
+
+    expressaoDigitada.innerText = expressaoAovivo.innerText + " = ";
+
+    expressaoAovivo.innerText = "";
+
+    
 }
 //#endregion
