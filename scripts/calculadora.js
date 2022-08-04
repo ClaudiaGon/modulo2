@@ -50,13 +50,16 @@ function configurarClicksTeclas() {
             } 
             else if (valorbotao == "=") {
                 calcular();
-            } else if (
-                 valorbotao == "+" || 
-                 valorbotao == "-" || 
-                 valorbotao == "/" || 
-                 valorbotao == "x"
-             ){
-            }else {
+            } else if (valorbotao == "+" ||
+                        valorbotao == "-"||
+                        valorbotao == "/"||
+                        valorbotao == "x"
+            ) { 
+                //interpolação
+                //expressaoAoVivo.innerText -= ` ${valorbotao}` ;
+
+                expressaoAovivo.innerText += valorbotao;
+            } else {
                 expressaoAovivo.innerText += valorbotao;
             }
         });
@@ -73,12 +76,24 @@ function calcular() {
     let expressaoAovivo = document.getElementById("expressaoAovivo");
     let expressaoDigitada = document.getElementById("expressaoDigitada");
 
-    // let expressao = expressaoAovivo.innerText
+    let expressaoSoma = expressaoAovivo.innerText.split("+");
+    let expressaoSubtracao = expressaoAovivo.innerText.split("-");
+    let expressaoDivisao = expressaoAovivo.innerText.split("/");
+    let expressaoMultiplicacao = expressaoAovivo.innerText.split("x");
+
+    let resultado = 0;
+    if (expressaoSoma){
+        resultado = parseFloat(expressaoSoma[0]) + parseFloat(expressaoSoma[1]);
+    } else if (expressaoSubtracao){
+        console.log("implementar subtração");
+    } else if (expressaoDivisao) {
+        console.log("implementar divisão");
+    } else { 
+        console.log("implementar Multiplicação");
+    }
 
     expressaoDigitada.innerText = expressaoAovivo.innerText + " = ";
 
-    expressaoAovivo.innerText = "";
-
-    
+    expressaoAovivo.innerText = resultado;    
 }
 //#endregion
