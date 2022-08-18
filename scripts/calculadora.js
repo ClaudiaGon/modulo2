@@ -69,6 +69,10 @@ function configurarClicksTeclas() {
 }
 //#endregion
 
+
+//#region | Historico
+
+//#endregion
 //#region Operações da calculadora
 function calcular() {
     console.log("Criar mecanismo que calculo");
