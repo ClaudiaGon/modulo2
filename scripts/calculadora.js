@@ -18,6 +18,9 @@ function configurarAbrirHistorico(){
     abrirHistorico.addEventListener("click",(event) =>{
         let historicoLista = document.getElementById("historicoLista");
         historicoLista.style.visibility = "visible";
+
+        let historico = localStorage.getItem("historico");
+        historicolistaIteins.innerText = historico;
     });
 }
 
@@ -76,14 +79,18 @@ function registrarHistorico(expressao, resultado){
 
     let historicoCalculos = [];
 
+    if (localStorage.getItem("historico")){
+        historicoCalculos = JSON.parse(localStorage.getItem("historico"));
+    }
+
     let historicoItem = {
         expressao: expressao,
         resultado: resultado
     }
     historicoCalculos.push(historicoItem);
-    localStorage.setItem("historico", "oi sou um historico")
 
-    console.log(localStorage.getItem("historico"));
+    localStorage.setItem("historico", JSON.stringify(historicoCalculos));
+
 }
 //#endregion
 //#region Operações da calculadora
