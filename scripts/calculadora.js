@@ -71,7 +71,18 @@ function configurarClicksTeclas() {
 
 
 //#region | Historico
+function registrarHistorico(expressao, resultado){
+    console.log("registrarHistorico", expressao, resultado);
 
+    let historicoCalculos = [];
+
+    let historicoItem = {
+        expressao: expressao,
+        resultado: resultado
+    }
+    historicoCalculos.push(historicoItem);
+
+}
 //#endregion
 //#region Operações da calculadora
 function calcular() {
@@ -97,7 +108,7 @@ function calcular() {
     }
 
     expressaoDigitada.innerText = expressaoAovivo.innerText + " = ";
-
-    expressaoAovivo.innerText = resultado;    
+    registrarHistorico(expressaoAovivo.innerText, resultado);
+    expressaoAovivo.innerText = resultado; 
 }
 //#endregion
