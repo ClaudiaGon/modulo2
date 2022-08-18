@@ -81,7 +81,9 @@ function registrarHistorico(expressao, resultado){
         resultado: resultado
     }
     historicoCalculos.push(historicoItem);
+    localStorage.setItem("historico", "oi sou um historico")
 
+    console.log(localStorage.getItem("historico"));
 }
 //#endregion
 //#region Operações da calculadora
