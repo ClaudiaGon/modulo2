@@ -7,11 +7,37 @@ console.log("configurar");
 configurarAbrirHistorico();
 configurarfecharHistorico();
 configurarClicksTeclas();
+configurarTeclasTeclado();
+}
+
+function configurarTeclasTeclado() {
+    document.addEventListener("keydown", (event)=>{
+        console.log(event.keyCode, event.shiftKey);
+
+        if (event.keyCode >= 48 && event.keyCode <= 57){
+            let valor = String.fromCharCode(event.keyCode);
+            registrarExpressaoPainel(valor);
+        } else if (event.keyCode == 27) { //ESC
+            limparPainel();
+        }
+    });
 }
 
 //#region  Funcoes do painel
+function    registrarExpressaoPainel(valor){
+    let expressaoAovivo = document.getElementById("expressaoAovivo");
+    expressaoAovivo.innerText += valor;
+}
 
-function configurarAbrirHistorico(){
+function    limparPainel() {
+    let expressaoAovivo = document.getElementById("expressaoAovivo");
+    expressaoAovivo.innerText = "";
+
+    let expressaoDigitada = document.getElementById("expressaoDigitada");
+    expressaoDigitada.innerText += valor;
+}
+
+function configurarAbrirHistorico() {
     console.log("configurarAbrirHistorico");
 
     let abrirHistorico = document.getElementById("abrirHistorico");
@@ -19,12 +45,25 @@ function configurarAbrirHistorico(){
         let historicoLista = document.getElementById("historicoLista");
         historicoLista.style.visibility = "visible";
 
-        let historico = localStorage.getItem("historico");
-        historicolistaIteins.innerText = historico;
+        carregarHistorico();
     });
 }
 
-
+function carregarHistorico () {
+    let historico = JSON.parse(localStorage.getItem("historico"));
+    let historicolistaIteins = document.getElementById("historicolistaIteins");
+        historicolistaIteins.innerHTML = "";
+        for (const item of historico){
+            let itemFormatado = `
+                    <div class="item-historico">
+                    <span class="expressao">${item.expressao}</span>
+                    <span class="sinal">=</span>
+                    <span class="resultado">${item.resultado}</span><br>
+                    </div>
+            `;
+            historicolistaIteins.innerHTML += itemFormatado;
+        }
+}
 function configurarfecharHistorico() {
     console.log("configurarfecharHistorico");
 

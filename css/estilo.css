@@ -76,6 +76,12 @@
     color: rgb(27, 27, 250);
     padding: 10px;
 }
+
+#historicolistaIteins .item-historico{
+    margin-bottom: 25px;
+}
+
+
 #historicolistaIteins .sinal {
 
 }
