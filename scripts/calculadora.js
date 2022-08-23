@@ -19,6 +19,8 @@ function configurarTeclasTeclado() {
             registrarExpressaoPainel(valor);
         } else if (event.keyCode == 27) { //ESC
             limparPainel();
+        } else if (event.keyCode == 13) { //ENTER
+            calcular();
         }
     });
 }
